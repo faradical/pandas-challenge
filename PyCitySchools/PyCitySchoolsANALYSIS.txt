@@ -1,0 +1,18 @@
+PyCitySchools Written Analysis
+Pandas-Challenge
+Seth Pruitt
+
+
+1) Analysis of the SpendingScoresDF dataframe produced using the given data demontrates that the relationship between money spent per student is roughly inversely proportional, i.e., student scores are actually higher in schools with smaller budgets per student.
+
+2) Charter schools consistently outrank district schools in both reading and math scores.
+
+
+NOTE ON THE PRESENCE OF BOTH "% Overall Passing Rate" AND "Overall Passing Rate" COLUMNS:
+The README instructions included with this homework call for an "Overall Passing Rate" column which is arbitrarily defined therein as the average of the "% Passing Math" and "% Passing Reading" columns. The starter file, however, references a "% Overall Passing Rate". This difference led to very different results in the construction of this column, as an overall passing rate, expressed as a percent, was interpreted to mean a score taken by determining the total number of students in a each school to be passing both math and reading simultaneously, then dividing this by the total number of students in that school and multiplying by 100 to generate a percent. 
+
+	NumberOfStudentsPassing = len(student_data.loc[(student_data['school_name'] == school) & (student_data['math_score'] >= 70) & (student_data['reading_score'] >= 70), 'student_name'])
+
+	PercentOverallRate = NumberOfStudentsPassing * 100 / StudentCount
+
+A column for the "Overall Passing Rate" using the arbitrary average definition was added back to the homework for completeness, but later dataframes continue to be sorted by the "% Overall Passing Rate" as it is a more comprehensive metric.
